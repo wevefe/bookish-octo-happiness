@@ -1,10 +1,19 @@
-elements.space_sand = {
-    color: "#4a0e4e",                
-    behavior: behaviors.AGPOWDER,
-    category: "powders",
-    state: "solid",
-    density: 1200,
-    reactions: {
-        "water": { elem1: "stone", elem2: "ice" }
+// Ждем, пока Sandboxels полностью загрузит все свои внутренние скрипты
+window.addEventListener('load', function() {
+    // Проверяем, существуют ли базовые объекты игры
+    if (typeof elements !== 'undefined' && typeof behaviors !== 'undefined') {
+        
+        elements.wine = {
+            color: "#89281D",
+            behavior: behaviors.LIQUID,
+            category: "food",
+            viscosity: 20000,
+            state: "liquid",
+            density: 380,
+        };
+        
+        console.log("Мод на вино успешно активирован!");
+    } else {
+        console.error("Ошибка: База данных Sandboxels еще не готова.");
     }
-};
+});
